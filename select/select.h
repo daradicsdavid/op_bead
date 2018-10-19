@@ -1,8 +1,8 @@
 #ifndef OP_BEAD_SELECT_H
 #define OP_BEAD_SELECT_H
 
-#import "../model/order.h"
-#import "../model/boolean.h"
+#include "../model/order.h"
+#include "../model/boolean.h"
 
 int selectOrder(struct Order orders[], int orderNumber);
 

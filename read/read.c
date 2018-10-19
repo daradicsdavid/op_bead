@@ -1,25 +1,29 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include <limits.h>
 #include "../model/order.h"
 #include "../model/boolean.h"
 
 
-int readString(char *str) {
+void readString(char *str) {
     fgets(str, STR_LENGTH, stdin);
     str[strcspn(str, "\n")] = 0;
 }
 
 void readInt(int *integer) {
-    scanf("%d", integer);
-    getchar();
+    char *ptr;
+    char str[STR_LENGTH];
+    fgets(str, STR_LENGTH, stdin);
+    *integer = (int) strtol(str, &ptr, 10);
 }
 
 boolean readYesNo(char *question) {
-    printf(question);
-    printf("No(0),Yes(1)\n");
+    printf("%s", question);
+    printf("(0) Nem \n(1) Igen\n");
+    printf("Adjon meg egy parancsot(0/1):");
     int answer;
-    scanf("%d", &answer);
-    getchar();
+    readInt(&answer);
     return answer == 0 ? false : true;
 }
 

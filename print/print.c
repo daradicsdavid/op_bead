@@ -14,18 +14,20 @@ void printOrder(struct Order order) {
 }
 
 void printOrders(struct Order orders[], int orderNumber) {
+    printf("\n");
+    for (int i = 0; i < orderNumber; ++i) {
+        printOrder(orders[i]);
+    }
+    printf("\n");
+}
+
+void printSelectOrder(struct Order orders[], int orderNumber) {
     if (orderNumber == 0) {
         printf("Jelenleg nincs rendelés a rendszerben!");
     }
     for (int i = 0; i < orderNumber; ++i) {
-        printOrder(orders[i]);
-    }
-}
-
-void printSelectOrder(struct Order orders[], int orderNumber) {
-    for (int i = 0; i < orderNumber; ++i) {
         printf("(%d) ", i);
         printOrder(orders[i]);
     }
-    printf("Adja meg a kívánt rendelés sorszámát.\n");
+    printf("Adja meg a kívánt rendelés sorszámát:");
 }
