@@ -3,7 +3,9 @@
 
 #include "../model/order.h"
 
-void createOrder(struct Order *order);
+void createOrder(struct Order orders[], int *orderNumber);
+
+void readOrder(struct Order *order);
 
 
 #endif //OP_BEAD_CREATE_H
