@@ -9,12 +9,11 @@
 #include "file/file.h"
 #include "select/select.h"
 #include "delete/delete.h"
+#include "filter/filter.h"
 
 int main() {
     struct Order orders[50];
     int orderNumber = readFromFile(orders);
 
-    int selectedOrder = selectOrder(orders, orderNumber);
-    deleteOrder(orders, &orderNumber, selectedOrder);
-    printOrders(orders, orderNumber);
+    filterOrdersByPerformanceRequirement(orders, orderNumber, 32);
 }
